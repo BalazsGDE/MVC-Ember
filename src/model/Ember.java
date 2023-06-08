@@ -6,6 +6,8 @@ public class Ember {
     private int kor;
 
     public Ember() {
+        this.nev=nev;
+        this.kor=kor;
     }
 
     public String getNev() {
