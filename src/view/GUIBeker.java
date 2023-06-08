@@ -11,7 +11,7 @@ public class GUIBeker {
         this.emberController = embercontroller;
     }
 
-    public void guiBekeres() {
+    public int guiBekeres() {
         String bekertNev;
 
         bekertNev = JOptionPane.showInputDialog(null, "Nev: ", "Nevbekeres", JOptionPane.QUESTION_MESSAGE);
@@ -24,5 +24,11 @@ public class GUIBeker {
 
         emberController.setEmberKor(Integer.parseInt(bekertKor));
 
+        int gomb = JOptionPane.showConfirmDialog(null, "GUI-n mutassuk a létrehozott ember példányt?", "Adatbekérés", JOptionPane.YES_NO_OPTION);
+        if (gomb == JOptionPane.YES_OPTION) {
+            return 1;
+        } else {
+            return 0;
+        }
     }
 }
