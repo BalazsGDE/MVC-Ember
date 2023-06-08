@@ -12,5 +12,4 @@ public class GUIKiir {
         String emberAdatok = emberController.toString();
         JOptionPane.showMessageDialog(null,emberAdatok,"ember adatainak megjelenítése:",JOptionPane.INFORMATION_MESSAGE);
     }
-
 }

@@ -12,5 +12,4 @@ public class KonzolKiir {
         String emberAdatok = emberController.toString();
         System.out.println(emberAdatok);
     }
-
 }

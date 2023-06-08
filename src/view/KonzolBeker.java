@@ -4,10 +4,10 @@ import control.EmberController;
 import java.util.Scanner;
 
 public class KonzolBeker {
-    EmberController emberController;
-    int bekertKor;
-    String bekertNev;
-    String guiVagyKonzol;
+    private EmberController emberController;
+    private int bekertKor;
+    private String bekertNev;
+    private String guiVagyKonzol;
 
     public KonzolBeker(EmberController embercontroller) {
         this.emberController = embercontroller;
@@ -21,19 +21,34 @@ public class KonzolBeker {
 
         Scanner sc = new Scanner(System.in);
         System.out.println("Nev: ");
+        while (true) {
+            try {
+                bekertNev = sc.nextLine();
+                if (bekertNev.length() == 0) throw new Exception();
+                break;
+            } catch (Exception e) {
+                System.out.println("Nevet kötelező megadni");
+            }
+        }
 
-        bekertNev = sc.nextLine();
 
         emberController.setEmberNev(bekertNev);
 
         System.out.println("Kor: ");
-        bekertKor = sc.nextInt();
+        while (true) {
+            try {
+                bekertKor = sc.nextInt();
+                if (bekertKor <= 0) throw new Exception("Negatív szám");
+                break;
+            } catch (Exception e) {
+                System.out.println("lehetséges kort adj meg! (pozitív egész számot)");
+            }
+        }
 
         emberController.setEmberKor(bekertKor);
 
         System.out.println("Konzolon akarod megjeleníteni az eredményt(i) vagy GUI-n(n): ");
         guiVagyKonzol = sc.next();
-
         if (guiVagyKonzol.equals("i")){
             sc.close();
             return 1;
@@ -42,6 +57,5 @@ public class KonzolBeker {
             sc.close();
             return 0;
         }
-
     }
 }
